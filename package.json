@@ -1,0 +1,34 @@
+{
+  "name": "fractal",
+  "version": "1.0.0",
+  "description": "Node js with fractal project structure",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon bin/development",
+    "clean": "rm -f app/server-compiled.js",
+    "build": "npm run clean && babel app/server.js --out-file app/server-compiled.js",
+    "production": "npm run build && node bin/production"
+  },
+  "keywords": [
+    "fractal"
+  ],
+  "author": "Dede kurniawan",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "@hapi/joi": "^15.0.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.0",
+    "mongoose": "^5.5.9",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "nodemon": "^1.19.0"
+  }
+}
