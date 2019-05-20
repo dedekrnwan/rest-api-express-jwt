@@ -12,29 +12,37 @@ const Schema = mongoose.model('users', new mongoose.Schema({
     },
     phone: {
         type: String,
+        "default": null
     },
     telephone: {
         type: String,
+        "default": null
     },
     address: {
         type: String,
+        "default": null
     },
     category: {
         type: String,
+        "default": null
     },
     created_date: {
         type: Date,
+        "default": Date.now
     },
     created_by_id: {
-        type: (new mongoose.Schema).Types.ObjectId,
-        ref: 'users'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
+        "default": null
     },
-    created_date: {
+    updated_date: {
         type: Date,
+        "default": Date.now
     },
     updated_by_id: {
-        type: (new mongoose.Schema).Types.ObjectId,
-        ref: 'users'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
+        "default": null
     },
 }));
 
