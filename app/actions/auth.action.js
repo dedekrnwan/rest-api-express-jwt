@@ -1,7 +1,6 @@
 import { Schema as User } from "../models/user.model";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import { jwt as configJwt } from "./../config/app";
+import Jwt from "./../helpers/jwt.helper"; //this is class
 
 const _app = () => {
     return {
@@ -13,7 +12,10 @@ const _app = () => {
                 if(user){
                     let check = await bcrypt.compare(req.body.password, user.password);
                     if(check){
-                        let token = await jwt.sign(configJwt.payLoad, configJwt.secretKey);
+                        const Jwt_helper = new Jwt({
+                            _id: user._id
+                        });
+                        let token = await Jwt_helper.sign(); //need sign options
                         res.status(200).json({
                             response: true,
                             message: `User successfully login`,

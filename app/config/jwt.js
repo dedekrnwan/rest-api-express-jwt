@@ -1,9 +1,10 @@
 export default {
-    secretKey: 'C0lS3cr3tK3y',
-    payLoad: {
-        iss: 'http://localhost/',
-        aud: 'http://localhost',
-        iat: Math.floor(Date.now() / 1000),
-        exp: Math.floor(Date.now() / 1000) + (60 * 60)
+    secretKey: 'NpYBWYa2I3sS7',
+    signOptions: {
+        issuer:  'Fractal',
+        subject:  'noreply@fractal.com',
+        audience:  'http://localhost/',
+        expiresIn:  "12h",
+        algorithm:  "RS256"   // RSASSA [ "RS256", "RS384", "RS512" ]
     }
 }

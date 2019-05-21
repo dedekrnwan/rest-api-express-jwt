@@ -1,6 +1,9 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import jwt from "jsonwebtoken"
+import { jwt as configJwt } from "./../config/app"
+import fs from "fs"
 
-const Schema = mongoose.model('users', new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     email: {
         type: String,
     },
@@ -47,6 +50,18 @@ const Schema = mongoose.model('users', new mongoose.Schema({
         ref: 'users',
         "default": null
     },
-}));
+});
+
+UserSchema.statics.generateAuthToken  = function() {
+    return jwt.sign({
+        _id: this._id,
+        iss: 'http://localhost/',
+        aud: 'http://localhost',
+        iat: Math.floor(Date.now() / 1000),
+        exp: Math.floor(Date.now() / 1000) + (60 * 60)
+    }, configJwt.secretKey)
+};
+
+const Schema = mongoose.model('User', UserSchema);
 
 export { Schema }

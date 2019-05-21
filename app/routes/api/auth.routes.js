@@ -12,6 +12,7 @@ router.route('/login')
     );
 router.route('/register')
     .post(
+        authenticated,
         validator().validate.body(validator().schemas.User),
         AuthAction.register
     );
