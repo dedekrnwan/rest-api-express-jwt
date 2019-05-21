@@ -1,6 +1,7 @@
 import express from "express";
 import { AuthAction } from "../../actions/auth.action";
 import { validator } from "../../helpers/routes.helper";
+import { authenticated } from "./../../middlewares/auth";
 
 const router = express.Router()
 
