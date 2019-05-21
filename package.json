@@ -2,11 +2,11 @@
   "name": "fractal",
   "version": "1.0.0",
   "description": "Node js with fractal project structure",
-  "main": "app.js",
+  "main": "lib/app.js",
   "scripts": {
     "start": "nodemon bin/development",
-    "clean": "rm -f app/server-compiled.js",
-    "build": "npm run clean && babel app/server.js --out-file app/server-compiled.js",
+    "clean": "rm -f lib/server-compiled.js",
+    "build": "npm run clean && babel lib/server.js --out-file lib/server-compiled.js",
     "production": "npm run build && node bin/production"
   },
   "keywords": [
@@ -20,10 +20,12 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "@hapi/joi": "^15.0.3",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.9",
     "morgan": "^1.9.1"
   },

@@ -1,6 +1,6 @@
 import express from "express";
 import { UserAction } from "../../actions/user.action";
-import { validator } from "./../../helpers/routes.helper";
+import { validator } from "../../helpers/routes.helper";
 
 const router = express.Router()
 

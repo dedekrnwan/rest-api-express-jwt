@@ -4,6 +4,9 @@ const Schema = mongoose.model('users', new mongoose.Schema({
     email: {
         type: String,
     },
+    password: {
+        type: String,
+    },
     username: {
         type: String,
     },

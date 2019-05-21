@@ -46,9 +46,16 @@ const validator = () => {
                     param: joi.string().alphanum().min(24).max(24).required()
                 }),
             },
+            Auth: {
+                login: joi.object().keys({
+                    email: joi.string().email().required(),
+                    password: joi.string().required(),
+                })
+            },
             User: joi.object().keys({
                 email: joi.string().email().required(),
                 username: joi.string().required(),
+                password: joi.string().required(),
                 birthdate: joi.date().required(),
                 phone: joi.string(),
                 telephone: joi.string(),
