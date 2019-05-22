@@ -12,5 +12,19 @@ router.route('/')
         validator().validate.body(validator().schemas.User),
         UserAction.store
     );
+router.route('/:id')
+        .get(
+            validator().validate.param(validator().schemas.object.id, 'id'),
+            UserAction.details
+        )
+        .patch(
+            validator().validate.param(validator().schemas.object.id, 'id'),
+            validator().validate.body(validator().schemas.User),
+            UserAction.update
+        )
+        .delete(
+            validator().validate.param(validator().schemas.object.id, 'id'),
+            UserAction.delete
+        );
 
 export default router
