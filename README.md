@@ -1,6 +1,6 @@
-# Project Title
+# CRUD API with Express Framework + JWT Auth
 
-CRUD API with Express Framework + JWT Auth
+Using Express Js _ JWT Auth with mngoodb
 
 
 ## Getting Started
