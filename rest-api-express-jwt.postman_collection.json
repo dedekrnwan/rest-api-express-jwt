@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "47593b04-4751-4d86-afe4-9ebfa87aa491",
+		"name": "rest-api-express-jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{host}}/auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05311c09-1612-4ba8-a115-450ae1143e74",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"dekur98@gmail.com\",\n\t\"password\": \"secret\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/auth/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"dekur98@gmail.com\",\n\t\"username\": \"dekur98\",\n\t\"name\": \"Dede kurniawan\",\n\t\"birthdate\": \"1999-04-16\",\n\t\"password\": \"secret\"\t\n}"
+				},
+				"url": {
+					"raw": "{{host}}/auth/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}/user/5ce99665922e5c4030902465",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/user/5ce99665922e5c4030902465",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"5ce99665922e5c4030902465"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}/user/5ce99665922e5c4030902465",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone\": null,\n    \"telephone\": null,\n    \"address\": null,\n    \"category\": null,\n    \"created_by_id\": null,\n    \"updated_by_id\": null,\n    \"email\": \"dekur98@gmail.com\",\n    \"username\": \"dekur98\",\n    \"name\": \"Dede kurniawan\",\n    \"birthdate\": \"1999-04-16T00:00:00.000Z\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/user/5ce99665922e5c4030902465",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"5ce99665922e5c4030902465"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -52,23 +52,24 @@ const validator = () => {
                     password: joi.string().required(),
                 })
             },
-            User: joi.object().keys({
-                email: joi.string().email().required(),
-                username: joi.string().required(),
-                password: joi.string().required(),
-                birthdate: joi.date().required(),
-                phone: joi.string(),
-                telephone: joi.string(),
-                address: joi.string(),
-                category: joi.string(),
-                email_verify_date: joi.date(),
-                password: joi.string().required(),
-                remember_token: joi.string(),
-                created_date: joi.date(),
-                created_by_id: joi.string().alphanum().min(24).max(24),
-                updated_date: joi.date(),
-                updated_by_id: joi.string().alphanum().min(24).max(24),
-            }),
+            User: {
+                update: joi.object().keys({
+                    email: joi.string().email(),
+                    username: joi.string(),
+                    password: joi.string(),
+                    birthdate: joi.date(),
+                    phone: joi.string(),
+                    telephone: joi.string(),
+                    address: joi.string(),
+                    category: joi.string(),
+                    email_verify_date: joi.date(),
+                    remember_token: joi.string(),
+                    created_date: joi.date(),
+                    created_by_id: joi.string().alphanum().min(24).max(24),
+                    updated_date: joi.date(),
+                    updated_by_id: joi.string().alphanum().min(24).max(24),
+                })
+            },
         }
     }
 }

@@ -1,5 +1,5 @@
 import { Schema as User } from "../models/user.model";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import Jwt from "./../helpers/jwt.helper"; //this is class
 
 const _app = () => {
@@ -45,7 +45,7 @@ const _app = () => {
         },
         register: async (req, res, next) => {
             try {
-                req.body['password'] = await bcrypt.hash(req.body['password'], 10);
+                req.body['password'] = await bcrypt.hash(req.body['password'], await bcrypt.genSalt(10));
                 let user = new User(req.body);
                 user = await user.save(); 
                 res.status(200).json({
